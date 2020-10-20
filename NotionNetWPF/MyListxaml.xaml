@@ -1,0 +1,51 @@
+﻿<Window x:Class="NotionNetWPF.MyListxaml"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NotionNetWPF"
+        mc:Ignorable="d"
+        Title="MyListxaml" Height="450" Width="800">
+    
+        <Grid x:Name="Grid1">
+        <ListView Name="lvDataBinding" Margin="4,20,40,100"  ItemsSource="{Binding}">
+            <ListView.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="White" Offset="0"/>
+                </LinearGradientBrush>
+            </ListView.Background>
+            <ListView.View>
+                <GridView>
+                    <!--<GridViewColumn Header="User ID" DisplayMemberBinding="{Binding Path=userId}"/>-->
+                    <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Path=title}"/>
+                    <!--<GridViewColumn Header="Completed" DisplayMemberBinding="{Binding Path=completed}"/>-->
+                   
+                </GridView>
+            </ListView.View>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ListViewItem_PreviewMouseLeftButtonDown" />
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+        <Label Name="lbluname"  HorizontalAlignment="Right" Margin="0,0,110,0" VerticalAlignment="Top"/>
+    </Grid>
+    <!--<Grid>
+        <ListView Margin="10" Name="lvDataBinding">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <WrapPanel>
+                        <TextBlock Text="userId: " />
+                        <TextBlock Text="{Binding userId}" FontWeight="Bold" />
+                        <TextBlock Text="" />
+                        <TextBlock Text="title: " />
+                        <TextBlock Text="{Binding title}" FontWeight="Bold" />
+                        <TextBlock Text="completed" />
+                        <TextBlock Text="{Binding completed}" TextDecorations="Underline" Foreground="Blue" Cursor="Hand" />
+                        <TextBlock Text=")" />
+                    </WrapPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>-->
+</Window>
